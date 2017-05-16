@@ -2,7 +2,7 @@
 
 This is a project to modify the existing course site providing gamified quizzes to students.
 
-##Objectives:
+## Objectives:
 
 Increase "pedagogical value" of the game (it should be worth integrating as course material)
 Reduce time & effort required by instructor for game management
