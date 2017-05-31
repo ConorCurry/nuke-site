@@ -100,6 +100,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+#Number of days users have to activate an account after registration
+ACCOUNT_ACTIVATION_DAYS = 7
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
