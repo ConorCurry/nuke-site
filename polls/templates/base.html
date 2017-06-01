@@ -12,36 +12,48 @@
   <link href="{% static 'polls/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
-<body class="blue-grey lighten-3">
+<body class="white">
 	{% block navbar %}
-  <nav class="blue-grey darken-2" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Nuclear Engineering</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">My Account</a></li>
-      </ul>
+	<div class="navbar-fixed">
+		<nav class="green darken-2" role="navigation">
+			<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Nuclear Engineering</a>
+				<ul class="right hide-on-med-and-down">
+					{% if user.is_authenticated %}
+					<li><a href="#">My Account</a></li>
+					{% else %}
+					<li><a href="#">Sign in</a></li>
+					{% endif %}
+				</ul>
 
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">My Account</a></li>
-      </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
+				<ul id="nav-mobile" class="side-nav">
+					{% if user.is_authenticated %}
+					<li><a href="#">My Account</a></li>
+					{% else %}
+					<li><a href="#">Sign in</a></li>
+					{% endif %}
+				</ul>
+				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+			</div>
+		</nav>
+	</div>
 	{% endblock navbar %}
-	
-	<div class="section no-pad-bot" id="banner">
-		<div class="container">
-			<h3 class="header center deep-orange-text">
+	<div class="parallax-container" >	
+		<div class="parallax">
+			<img src="http://cdn-images-1.medium.com/max/1920/1*IfDD2fBjp_4gP2u86QOs6Q.jpeg" style="display: block;">
+		</div>
+		<div class="section no-pad-bot" id="banner">
+			<h3 class="header center">
 				{% block header %}{% endblock %}
 			</h3>
 		</div>
 	</div>
-	<div>{% block content %}{% endblock %}</div>
+	{% block content %}{% endblock %}
 	
 	{% block footer %}
-	<footer class="page-footer deep-orange">
-		<div class="footer-copyright">
-			<div class="container">Course Attribution</div>
-			<div class="container">Made with Django and Materialize</div>
+	<footer class="page-footer green darken-2 row">
+		<div class="container">
+			<a class="grey-text text-lighten-2 left">Course Attribution</a>
+			<a class="grey-text text-lighten-2 right">Made with Django and Materialize</a>
 		</div>
 	</footer>
 	{% endblock footer %}

@@ -18,8 +18,18 @@
   align: center;
 }
 
-.page-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.parallax-container {
+  height: 150px;
 }
+
+label {
+  color: white;
+}
+
+input:not([type]),
+input[type=password],
+input[type=text],
+input[type=email] {
+  border-bottom-color: white;
+}
+
