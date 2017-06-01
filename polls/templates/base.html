@@ -12,9 +12,9 @@
   <link href="{% static 'polls/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
-<body>
+<body class="blue-grey lighten-3">
 	{% block navbar %}
-  <nav class="light-blue lighten-1" role="navigation">
+  <nav class="blue-grey darken-2" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Nuclear Engineering</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="#">My Account</a></li>
@@ -28,30 +28,21 @@
   </nav>
 	{% endblock navbar %}
 	
-	<div>{% block content %}</div>
+	<div class="section no-pad-bot" id="banner">
+		<div class="container">
+			<h3 class="header center deep-orange-text">
+				{% block header %}{% endblock %}
+			</h3>
+		</div>
+	</div>
+	<div>{% block content %}{% endblock %}</div>
 	
 	{% block footer %}
-	<footer class="page-footer orange">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">Footer Content</h5>
-          <p class="grey-text text-lighten-4">Just a test footer. Class links can go here.</p>
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">Contact</h5>
-          <ul>
-            <li><a class="white-text" href="#!">Link 1</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">Course Attribution</div>
-    </div>
-    <div class="footer-copyright">
-      <div class="container">Made with Django and Materialize</div>
-    </div>
+	<footer class="page-footer deep-orange">
+		<div class="footer-copyright">
+			<div class="container">Course Attribution</div>
+			<div class="container">Made with Django and Materialize</div>
+		</div>
 	</footer>
 	{% endblock footer %}
 
