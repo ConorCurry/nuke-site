@@ -12,16 +12,16 @@
   <link href="{% static 'polls/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
-<body class="white">
+<body class="blue-grey darken-4">
 	{% block navbar %}
 	<div class="navbar-fixed">
-		<nav class="green darken-2" role="navigation">
+		<nav class="blue-grey" role="navigation">
 			<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Nuclear Engineering</a>
 				<ul class="right hide-on-med-and-down">
 					{% if user.is_authenticated %}
 					<li><a href="#">My Account</a></li>
 					{% else %}
-					<li><a href="#">Sign in</a></li>
+					<li><a href="{% url 'auth_login' %}">Sign in</a></li>
 					{% endif %}
 				</ul>
 
@@ -29,7 +29,7 @@
 					{% if user.is_authenticated %}
 					<li><a href="#">My Account</a></li>
 					{% else %}
-					<li><a href="#">Sign in</a></li>
+					<li><a href="{% url 'auth_login' %}">Sign in</a></li>
 					{% endif %}
 				</ul>
 				<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -39,21 +39,28 @@
 	{% endblock navbar %}
 	<div class="parallax-container" >	
 		<div class="parallax">
-			<img src="http://cdn-images-1.medium.com/max/1920/1*IfDD2fBjp_4gP2u86QOs6Q.jpeg" style="display: block;">
+			<img src="http://cdn-images-1.medium.com/max/1920/1*IfDD2fBjp_4gP2u86QOs6Q.jpeg" style="display: block; transform: translateX(-50%) translateY(57%);">
 		</div>
 		<div class="section no-pad-bot" id="banner">
-			<h3 class="header center">
-				{% block header %}{% endblock %}
-			</h3>
+			<div class="container center">
+				<a class="btn btn-floating btn-large light-blue"><i class="material-icons">
+						{% block header-icon %}{% endblock %}
+				</a></i>
+			</div>
+			<div class="container center">
+				<h4 class="white-text">
+					{% block header %}{% endblock %}
+				</h4>
+			</div>
 		</div>
 	</div>
 	{% block content %}{% endblock %}
 	
 	{% block footer %}
-	<footer class="page-footer green darken-2 row">
+	<footer class="page-footer blue-grey lighten-2 row">
 		<div class="container">
-			<a class="grey-text text-lighten-2 left">Course Attribution</a>
-			<a class="grey-text text-lighten-2 right">Made with Django and Materialize</a>
+			<a class="white-text left">Course Attribution</a>
+			<a class="white-text right">Made with Django and Materialize</a>
 		</div>
 	</footer>
 	{% endblock footer %}
